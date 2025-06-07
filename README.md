@@ -34,6 +34,8 @@ systemd-repart --dry-run=no --empty=force --defer-partitions=swap,root,home /dev
 - Log in and run the following commands:
 
 ```bash
+hostnamectl set-hostname karls-laptop
+hostnamectl set-hostname --pretty "Karl's Laptop"
 chezmoi init --apply --force lauritskarl
 homectl update \
     --auto-resize-mode=off \
