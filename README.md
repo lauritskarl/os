@@ -31,13 +31,24 @@ systemd-repart --dry-run=no --empty=force --defer-partitions=swap,root,home /dev
 
 - Reboot into the system drive and select the regular profile
 - Run through the first-boot setup
-- Log in and run the following command:
+- Log in and run the following commands:
 
 ```bash
+chezmoi init --apply --force lauritskarl
 homectl update \
     --auto-resize-mode=off \
     --disk-size=max \
-    --luks-discard=on"
+    --luks-discard=on \
+    --real-name "Karl Hans Laurits" \
+    --email-address "karl@laurits.dev" \
+    --language "en_US.UTF-8" \
+    --location "Estonia" \
+    --timezone "Europe/Tallinn" \
+    --ssh-authorized-keys @~/.ssh/authorized_keys \
+    --fido2-device auto
+systemctl set-default graphical.target
+systemctl enable --now gdm.service
+bash ~/.setup.sh
 ```
 
 - To update the system, run the following commands:
