@@ -1,0 +1,2 @@
+# os
+Personal particleos configuration
