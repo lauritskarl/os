@@ -1,6 +1,10 @@
 # os
 Personal particleos configuration
 
+## todo
+
+- [ ] Add essential packages not managed by mise
+
 ## setup
 
 - Use these commands to set up the usb installer
