@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Bitcoin Node Service</short>
+  <description>Customized bitcoin node firewalld service.</description>
+  <port protocol="tcp" port="8333"/>
+  <port protocol="tcp" port="8332"/>
+</service>

@@ -1,0 +1,11 @@
+[tools]
+act = "latest"
+helix = "latest"
+lazygit = "latest"
+
+[hooks]
+enter = "mise install"
+
+[tasks.test-ci]
+description = "Test github actions locally using act"
+run = "act"

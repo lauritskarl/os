@@ -1,0 +1,13 @@
+$TTL 3600
+
+; SOA Records
+@			IN	SOA	ns1.example.com.	hostmaster.example.com. (
+								2025010101	; serial number
+								1d		; refresh period
+								3h		; retry period
+								3d		; expire time
+								3h )		; minimum TTL
+
+; NS Records
+@			IN	NS	ns1.example.com.
+@			IN	NS	ns6.gandi.net.

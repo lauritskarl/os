@@ -1,0 +1,41 @@
+---
+- name: Ensure chrony and certbot are installed
+  ansible.builtin.dnf:
+    name:
+      - chrony
+      - certbot
+    state: present
+    allowerasing: true
+
+- name: Ensure chrony configuration file is present
+  ansible.builtin.template:
+    src: "chrony.conf.j2"
+    dest: "/etc/chrony.conf"
+    mode: 0644
+    owner: root
+    group: root
+    backup: true
+
+- name: Ensure chrony is started and enabled
+  ansible.builtin.systemd:
+    name: chrony.service
+    state: restarted
+    enabled: true
+    daemon-reload: true
+
+- name: Ensure http and ntp are enabled in firewalld
+  ansible.builtin.firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+    immediate: true
+  loop:
+    - http
+    - ntp
+
+- name: Ensure nts port is enabled in firewalld
+  ansible.builtin.firewalld:
+    port: 4460/tcp
+    permanent: true
+    state: enabled
+    immediate: true

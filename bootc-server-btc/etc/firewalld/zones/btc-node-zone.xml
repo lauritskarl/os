@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>Bitcoin Node Zone</short>
+  <description>Customized bitcoin node zone.</description>
+  <service name="btc-node"/>
+  <service name="ssh"/>
+  <service name="dhcpv6-client"/>
+  <service name="cockpit"/>
+  <forward/>
+</zone>

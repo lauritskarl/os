@@ -1,0 +1,35 @@
+[tools]
+opentofu = "latest"
+cosign = "latest"
+gitleaks = "latest"
+
+[hooks]
+enter = "mise install"
+
+[tasks.format]
+description = "Run tofu fmt"
+alias = "f"
+run = "tofu fmt"
+
+[tasks.init]
+description = "Run tofu init"
+alias = "i"
+run = "tofu init"
+
+[tasks.apply]
+description = "Run tofu apply"
+alias = "a"
+run = "tofu apply --auto-approve"
+
+[tasks.scan-secrets]
+description = "Scan for secrets using gitleaks"
+alias = "ss"
+run = "gitleaks git"
+
+[tasks.pre-commit]
+description = "Run all pre-commit tasks"
+depends = ["format"]
+
+[tasks.ci]
+description = "Run all ci tasks"
+depends = ["format", "init", "apply"]
