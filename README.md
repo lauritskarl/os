@@ -1,7 +1,5 @@
 # os
 
-
-
 ```bash
 export COSIGN_CERTIFICATE_OIDC_ISSUER="https://token.actions.githubusercontent.com"
 export COSIGN_CERTIFICATE_IDENTITY="https://github.com/lauritskarl/bootc-workstation/.github/workflows/build.yaml@refs/heads/main"
